@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Reader | The Grand Quran</title>
+  <link rel="stylesheet" href="juz.css">
+</head>
+<body>
+  <div id="progress-container"><div id="progress-bar"></div></div>
+  
+  <header>
+    <a href="juz.html" class="btn">← BACK</a>
+    <div id="juzTitle" style="font-weight: 700; color: var(--gold);">JUZ ...</div>
+    <a href="index.html" style="color: white; text-decoration: none; font-size: 12px;">HOME</a>
+  </header>
+
+  <div id="quranContent">
+      </div>
+
+  <button id="scrollToTop">↑</button>
+
+  <script src="juz.js"></script>
+  <script>
+    // Ensure functions run after page is ready
+    window.onload = () => {
+        initScrollFeatures();
+        loadReader();
+    };
+  </script>
+</body>
+</html>
