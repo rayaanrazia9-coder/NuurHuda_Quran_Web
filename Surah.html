@@ -1,1 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>All Surahs</title>
+  <link rel="stylesheet" href="Surah.css">
+ 
+</head>
+<body>
 
+<h2>Select Surah</h2>
+
+<!-- Select dropdown -->
+<select id="surahSelect">
+  <option value="">--Choose a Surah--</option>
+</select>
+
+<br><br>
+
+<!-- Container ayadaha -->
+<div id="ayahs"></div>
+
+<!-- Back button -->
+<button id="backBtn" style="display:none;" onclick="showDropdown()">Back</button>
+
+<script>
+let select = document.getElementById("surahSelect");
+
+let ayahs = [];
+let current = 0;
+
+
+// load surah list
+
+fetch("https://api.alquran.cloud/v1/surah")
+.then(res => res.json())
+.then(data => {
+
+data.data.forEach(surah => {
+
+let option = document.createElement("option");
+
+option.value = surah.number;
+
+option.text =
+surah.number + " - " +
+surah.englishName;
+
+select.appendChild(option);
+
+});
+
+});
+
+
+// when select surah
+
+select.addEventListener("change", function(){
+
+let num = this.value;
+
+fetch(`https://api.alquran.cloud/v1/surah/${num}`)
+.then(res => res.json())
+.then(data => {
+
+ayahs = data.data.ayahs;
+
+current = 0;
+
+showAyah();
+
+});
+
+});
+
+
+// show one ayah
+
+function showAyah(){
+
+let box = document.getElementById("ayahs");
+
+if(!box){
+
+box = document.createElement("div");
+
+box.id = "ayahs";
+
+document.body.appendChild(box);
+
+}
+
+box.innerHTML = "";
+
+
+// arabic text
+
+let p = document.createElement("p");
+
+p.className = "arabic";
+
+p.innerText = ayahs[current].text;
+
+box.appendChild(p);
+
+
+// prev button
+
+let prev = document.createElement("button");
+
+prev.innerText = "Prev";
+
+prev.onclick = function(){
+
+if(current > 0){
+
+current--;
+
+showAyah();
+
+}
+
+}
+
+
+// next button
+
+let next = document.createElement("button");
+
+next.innerText = "Next";
+
+next.onclick = function(){
+
+if(current < ayahs.length - 1){
+
+current++;
+
+showAyah();
+
+}
+
+}
+
+
+box.appendChild(prev);
+
+box.appendChild(next);
+
+}
+</script>
+</body>
+</html>

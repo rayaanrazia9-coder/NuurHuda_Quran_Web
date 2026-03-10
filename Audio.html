@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Quran Surah Audio</title>
+<style>
+ 
+</style>
+</head>
+<link rel="stylesheet" href="Surah.css">
+<div id="cover">
+
+<body>
+
+<h2>Select Surah</h2>
+
+<select id="surahSelect"></select>
+
+<br><br>
+
+<audio id="player" controls></audio>
+
+<script>
+
+let select = document.getElementById("surahSelect");
+
+
+// get all surah
+
+fetch("https://api.alquran.cloud/v1/surah")
+.then(res => res.json())
+.then(data => {
+
+data.data.forEach(surah => {
+
+let option = document.createElement("option");
+
+option.value = surah.number;
+
+option.text =
+surah.number + " - " +
+surah.englishName;
+
+select.appendChild(option);
+
+});
+
+});
+
+
+// play full surah when change
+
+select.addEventListener("change", function(){
+
+let num = this.value;
+
+let audio =
+"https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/"
++ num + ".mp3";
+
+let player =
+document.getElementById("player");
+
+player.src = audio;
+
+player.play();
+
+});
+
+</script>
+
+</body>
+</html>
