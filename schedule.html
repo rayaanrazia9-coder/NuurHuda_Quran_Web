@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Quran Schedule • 30-Day Juz Plan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="schedule.css" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div>Quran Website</div>
+      </div>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a class="active" href="schedule.html">Schedule</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="card padded">
+        <h1>30-Day Quran Reading Schedule</h1>
+        <p>Complete the Quran in 30 days. Choose a view and navigate through weeks.</p>
+        <div class="controls" style="margin-top:.5rem">
+          <button id="viewList" class="btn">List</button>
+          <button id="viewCalendar" class="btn secondary">Calendar</button>
+          <button id="prev" class="btn secondary">Prev</button>
+          <button id="next" class="btn secondary">Next</button>
+          <button id="reset" class="btn alt">Reset</button>
+        </div>
+        <div class="schedule-meta">
+          <div id="viewLabel">View: List • Week 1</div>
+          <div>📖 Juz: 1–30 • 📅 30 days</div>
+        </div>
+        <div id="scheduleContainer" class="card padded"></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Ramadan Schedule</h2>
+      <p>Use this 30-day plan during Ramadan to finish a complete recitation. Pair with extra night prayers and reflection.</p>
+    </section>
+
+    <section class="section">
+      <h2>Daily Ayah Schedule</h2>
+      <p>Add a personal routine: read one ayah with meaning and tafsir after Fajr or Isha daily.</p>
+    </section>
+
+    <section class="section">
+      <h2>Prayer Reminder Schedule</h2>
+      <p>Align your reading around the five prayers. Light portions after each prayer keep a steady pace.</p>
+    </section>
+  </main>
+
+  <footer class="container">
+    <div>© <span id="year"></span> NuurHuda Qur'an</div>
+  </footer>
+
+  <script src="schedule.js"></script>
+</body>
+</html>
