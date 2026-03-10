@@ -2,7 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Scheherazade+New:wght@400;700&display=swap");
 
 :root {
-  --bg-top: #0f5132;
+  --bg-top:#0f5132;
   --bg-bottom: #022c22;
   --gold: #d4af37;
   --white: #ffffff;
@@ -123,4 +123,67 @@ header {
   width: 50px; height: 50px; border-radius: 50%;
   background: var(--gold); color: black;
   border: none; cursor: pointer; display: none; font-weight: bold;
+}
+
+
+
+/* TILAAWAT HEADER */
+
+.container.nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+max-width:1200px;
+margin:auto;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 0;
+}
+
+.brand{
+display:flex;
+align-items:center;
+gap:8px;
+text-decoration:none;
+color:var(--gold);
+font-weight:700;
+font-size:20px;
+}
+
+.brand-logo{
+font-size:22px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 14px;
+}
+
+nav a {
+  color: var(--white);
+  text-decoration: none;
+  padding: 10px 14px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+nav a:hover, nav a.active {
+  color: #0e0f10;
+  background: linear-gradient(180deg, #d4af37, #b88f1d);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+nav a:hover{
+color: #d4af37;
+}
+
+nav a:hover, nav a.active {
+  color: #0e0f10;
+  background: linear-gradient(180deg, #d4af37, #b88f1d);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
 }
