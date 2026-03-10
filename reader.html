@@ -1,26 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Reader</title>
-    <link rel="stylesheet" href="juz.css">
+<meta charset="UTF-8">
+<title>Reader</title>
+<link rel="stylesheet" href="juz.css">
 </head>
+
 <body>
-    <div id="progress-container"><div id="progress-bar"></div></div>
-    <header>
-        <div class="nav-container">
-            <a href="juz.html" class="btn">← BACK</a>
-            <span id="juzTitle" style="color: var(--gold); font-weight: 700; letter-spacing: 1px;">JUZ ...</span>
-            <button id="themeBtn" class="theme-toggle" onclick="toggleTheme()">Dark Theme</button>
-        </div>
-    </header>
-    <div id="quranContent"></div>
-    <button id="scrollToTop">↑</button>
-    <script src="juz.js"></script>
-    <script>
-        applyTheme();
-        initUI();
-        loadReader();
-    </script>
+
+<div id="progress-container"><div id="progress-bar"></div></div>
+
+<header>
+  <div class="container nav">
+
+    <a class="brand" href="index.html">
+      <span class="brand-logo">☪</span>
+      <span class="brand-name">Tilaawat</span>
+    </a>
+
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="surah.html">Surah</a></li>
+        <li><a href="juz.html">Juz</a></li>
+        <li><a href="reminder.html">Reminder</a></li>
+        <li><a href="ramadan.html">Ramadan</a></li>
+      </ul>
+    </nav>
+
+    <button id="themeBtn" class="theme-toggle" onclick="toggleTheme()">Dark Theme</button>
+
+  </div>
+</header>
+
+<h2 id="juzTitle" style="text-align:center;margin-top:30px;color:var(--gold);letter-spacing:2px;"></h2>
+
+<div id="quranContent"></div>
+
+<button id="scrollToTop">↑</button>
+
+<script src="juz.js"></script>
+
+<script>
+applyTheme();
+initUI();
+loadReader();
+</script>
+
 </body>
 </html>
