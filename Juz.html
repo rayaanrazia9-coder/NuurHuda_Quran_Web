@@ -1,28 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Juz List</title>
-    <link rel="stylesheet" href="juz.css">
+<meta charset="UTF-8">
+<title>Juz List</title>
+<link rel="stylesheet" href="juz.css">
 </head>
+
 <body>
-    <div id="progress-container"><div id="progress-bar"></div></div>
-    <header>
-        <div class="nav-container">
-            <a href="index.html" style="color: white; text-decoration: none; font-weight: 700; letter-spacing: 1px;">HOME</a>
-            <button id="themeBtn" class="theme-toggle" onclick="toggleTheme()">Dark Theme</button>
-        </div>
-    </header>
-    <div class="container" id="juzContainer"></div>
-    <button id="scrollToTop">↑</button>
-    <script src="juz.js"></script>
-    <script>
-        applyTheme();
-        initUI();
-        const container = document.getElementById('juzContainer');
-        for(let i=1; i<=30; i++){
-            container.innerHTML += `<a href="reader.html?juz=${i}" class="box"><b>Juz ${i}</b></a>`;
-        }
-    </script>
+
+<div id="progress-container"><div id="progress-bar"></div></div>
+
+<header>
+  <div class="container nav">
+
+    <a class="brand" href="index.html">
+      <span class="brand-logo">☪</span>
+      <span class="brand-name">Tilaawat</span>
+    </a>
+
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="surah.html">Surah</a></li>
+        <li><a href="juz.html" active>Juz</a></li>
+        <li><a href="reminder.html">Reminder</a></li>
+        <li><a href="ramadan.html">Ramadan</a></li>
+      </ul>
+    </nav>
+
+    <button id="themeBtn" class="theme-toggle" onclick="toggleTheme()">Dark Theme</button>
+
+  </div>
+</header>
+
+<div class="container" id="juzContainer"></div>
+
+<button id="scrollToTop">↑</button>
+
+<script src="juz.js"></script>
+
+<script>
+applyTheme();
+initUI();
+setActiveNav();
+
+const container = document.getElementById('juzContainer');
+
+for(let i=1;i<=30;i++){
+container.innerHTML += `<a href="reader.html?juz=${i}" class="box"><b>Juz ${i}</b></a>`;
+}
+</script>
+
 </body>
 </html>
