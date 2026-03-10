@@ -237,3 +237,37 @@ main {
 .tile h4 { margin-bottom: 6px; }
 .tile p { color: var(--muted); font-size: 14px; }
 
+
+footer {
+  margin-top: 40px;
+  padding: 22px 0 40px;
+  border-top: 1px solid rgba(212,175,55,0.14);
+  color: var(--muted);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 12px;
+}
+.footer-nav {
+  display: flex;
+  gap: 10px;
+}
+.footer-nav a {
+  color: var(--muted);
+  text-decoration: none;
+  padding: 6px 10px;
+  border-radius: var(--radius-xs);
+}
+.footer-nav a:hover {
+  color: var(--gold);
+  background: rgba(212,175,55,0.08);
+}
+
+.note {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 8px;
+}
