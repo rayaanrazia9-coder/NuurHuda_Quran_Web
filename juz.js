@@ -14,6 +14,20 @@ function toggleTheme() {
     updateToggleText(isAlt);
 }
 
+function setActiveNav() {
+  const path = location.pathname.split(/[\\/]/).pop().toLowerCase() || "Juz.html";
+
+  document.querySelectorAll("nav a").forEach(a => {
+    const href = a.getAttribute("href") || "";
+
+    if (
+      (path === "Juz.html" && href.endsWith("Juz.html")) ||
+      (href && path === href.toLowerCase())
+    ) {
+      a.classList.add("active");
+    }
+  });
+}
 function updateToggleText(isAlt) {
     const btn = document.getElementById('themeBtn');
     if (btn) {
