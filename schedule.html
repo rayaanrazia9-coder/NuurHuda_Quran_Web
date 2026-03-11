@@ -10,17 +10,29 @@
 </head>
 <body>
   <header>
-    <div class="container nav">
-      <div class="brand">
-        <div class="logo" aria-hidden="true"></div>
-        <div>☪ NuurHuda</div>
-      </div>
-      <nav class="nav-links">
-        <a href="index.html">Home</a>
-        <a class="active" href="schedule.html">Schedule</a>
-      </nav>
-    </div>
-  </header>
+  <div class="container nav">
+
+    <a class="brand" href="index.html">
+      <span class="brand-logo">☪</span>
+      <span class="brand-name">NuurHuda</span>
+    </a>
+
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="surah.html">Surah</a></li>
+        <li><a href="juz.html">Juz</a></li>
+        <li><a href="audio.html">Audio</a></li>
+        <li><a href="reminder.html">Reminder</a></li>
+        <li><a href="schedule.html" active>Schedule</a></li>
+      </ul>
+    </nav>
+
+    <button id="themeBtn" class="theme-toggle" onclick="toggleTheme()">Dark Theme</button>
+
+  </div>
+</header>
 
   <main class="container">
     <section class="hero">
