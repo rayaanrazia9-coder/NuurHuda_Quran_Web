@@ -1,0 +1,81 @@
+body{
+    margin:0;
+    font-family: Arial, sans-serif;
+    background: radial-gradient(circle, #1f7a5c, #0b3d2e);
+    color:white;
+    text-align:center;
+}
+
+/* Card dhexe */
+#ayahs{
+    max-width:900px;
+    margin:50px auto;
+    padding:30px;
+    background: rgba(0,0,0,0.2);
+    border-radius:20px;
+    box-shadow:0 0 15px rgba(0,0,0,0.5);
+}
+
+/* Arabic text */
+.arabic{
+    font-size:32px;
+    line-height:2;
+    direction: rtl;
+    color:#f5e6a8;
+}
+
+/* Translation */
+.translation{
+    font-size:16px;
+    margin-top:15px;
+    color:#ffffff;
+}
+
+/* Surah title */
+h2{
+    margin-top:20px;
+}
+
+/* Buttons */
+button{
+    padding:8px 15px;
+    margin:10px;
+    border-radius:8px;
+    border:1px solid #f5e6a8;
+    background:transparent;
+    color:#f5e6a8;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#f5e6a8;
+    color:black;
+}
+.arabic{
+    font-size:32px;
+    direction: rtl;
+    color:#f5e6a8;
+    line-height:2;
+}
+
+/* qari number haddii uu jiro */
+.number{
+    display:none;
+}
+
+#ayahs{
+    max-width:900px;
+    margin:50px auto;
+    padding:30px;
+    background: rgba(0,0,0,0.2);
+    border-radius:20px;
+}
+
+button{
+    padding:8px 15px;
+    margin:10px;
+    border-radius:8px;
+    border:1px solid #f5e6a8;
+    background:transparent;
+    color:#f5e6a8;
+}
