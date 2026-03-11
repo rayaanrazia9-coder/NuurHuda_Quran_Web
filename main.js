@@ -1,64 +1,62 @@
-const addBtn = document.getElementById("addBtn");
-const reminderInput = document.getElementById("reminderInput");
-const reminderTime = document.getElementById("reminderTime");
-const reminderList = document.getElementById("reminderList");
+const input=document.getElementById("reminderInput")
+const time=document.getElementById("reminderTime")
+const addBtn=document.getElementById("addBtn")
+const list=document.getElementById("reminderList")
 
-let reminders = JSON.parse(localStorage.getItem("reminders")) || [];
+let reminders=JSON.parse(localStorage.getItem("reminders"))||[]
 
-function saveReminders(){
-localStorage.setItem("reminders", JSON.stringify(reminders));
+function save(){
+localStorage.setItem("reminders",JSON.stringify(reminders))
 }
 
-function displayReminders(){
-reminderList.innerHTML="";
+function show(){
 
-reminders.forEach((reminder,index)=>{
+list.innerHTML=""
 
-let li=document.createElement("li");
+reminders.forEach((r,i)=>{
+
+let li=document.createElement("li")
 
 li.innerHTML=`
-<div>
-<strong>${reminder.text}</strong>
-<div class="time">${reminder.time}</div>
-</div>
+<span>${r.text} <span class="time">${r.time}</span></span>
+<span class="delete" onclick="del(${i})">✖</span>
+`
 
-<span class="delete" onclick="deleteReminder(${index})">❌</span>
-`;
+list.appendChild(li)
 
-reminderList.appendChild(li);
-
-});
+})
 
 }
 
-function addReminder(){
+function add(){
 
-let text = reminderInput.value;
-let time = reminderTime.value;
-
-if(text===""){
-alert("Please write reminder");
-return;
+if(input.value==""||time.value==""){
+alert("Write reminder and time")
+return
 }
 
 reminders.push({
-text:text,
-time:time
-});
+text:input.value,
+time:time.value
+})
 
-saveReminders();
-displayReminders();
+input.value=""
+time.value=""
 
-reminderInput.value="";
-reminderTime.value="";
+save()
+show()
+
 }
 
-function deleteReminder(index){
-reminders.splice(index,1);
-saveReminders();
-displayReminders();
+function del(i){
+
+reminders.splice(i,1)
+
+save()
+show()
+
 }
 
-addBtn.addEventListener("click",addReminder);
+addBtn.addEventListener("click",add)
 
-displayReminders();
+show()

@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../Users/admin/Documents/Safaa"
+		},
+		{
+			"path": "../Users/admin/Documents/Ustaada"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "NurHuda Website"
+	}
+}
