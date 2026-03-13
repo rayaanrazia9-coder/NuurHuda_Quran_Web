@@ -1,77 +1,67 @@
-body{
-font-family: Arial, sans-serif;
-margin:0;
-background: linear-gradient(135deg,#0f766e,#14b8a6);
-color:#333;
-}
+<!DOCTYPE html>
+<html lang="en">
 
-/* HEADER */
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-header{
-background:white;
-padding:20px;
-text-align:center;
-box-shadow:0 3px 10px rgba(0,0,0,0.1);
-}
+<link rel="stylesheet" href="about.css">
+</head>
 
-header h1{
-color:#0f766e;
-margin:0;
-}
+<body>
 
-/* NAV */
+<header>
+<nav>
+<a href="about.html">About</a>
+</nav>
+</header>
 
-nav{
-margin-top:10px;
-}
+<div class="container">
 
-nav a{
-margin:0 10px;
-text-decoration:none;
-color:#0f766e;
-font-weight:bold;
-}
+<section class="about">
 
-/* MAIN CONTAINER */
+<h2>About This Website</h2>
 
-.container{
-max-width:900px;
-margin:40px auto;
-background:white;
-padding:40px;
-border-radius:12px;
-box-shadow:0 8px 20px rgba(0,0,0,0.2);
-}
+<p>
+This website is created to help Muslims around the world easily read and listen
+to the Holy Quran anytime and anywhere. The goal of this platform is to make
+the Quran accessible through a simple and clean digital experience.
+</p>
 
-/* LIST */
+<p>
+The website includes the complete Quran with all 114 Surahs and the full
+30 Juz structure. Users can easily navigate between Surahs and Ayahs
+and listen to beautiful Quran recitations.
+</p>
 
-ul{
-line-height:1.8;
-}
+<p>
+It also provides reminders that encourage Muslims to read and reflect
+on the Quran daily. The website is designed to work smoothly on both
+mobile phones and computers.
+</p>
 
-/* BUTTON */
+<h3>Website Features</h3>
 
-button{
-background:#0f766e;
-color:white;
-border:none;
-padding:12px 25px;
-font-size:16px;
-border-radius:8px;
-cursor:pointer;
-transition:0.3s;
-}
+<ul>
+<li>114 Complete Surahs</li>
+<li>30 Juz Navigation</li>
+<li>Audio Quran Recitation</li>
+<li>Ayah Reminder</li>
+<li>Search Surah or Ayah</li>
+<li>Simple and clean design</li>
+</ul>
 
-button:hover{
-background:#14b8a6;
-transform:scale(1.05);
-}
+<button onclick="showMessage()">Click for Message</button>
 
-/* FOOTER */
+</section>
 
-footer{
-text-align:center;
-padding:15px;
-color:white;
-margin-top:40px;
-}
+</div>
+
+<footer>
+<p>© 2026 Quran Reminder Website</p>
+</footer>
+
+<script src="js/script.js"></script>
+
+</body>
+</html>

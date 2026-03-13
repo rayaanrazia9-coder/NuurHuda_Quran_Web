@@ -1,90 +1,78 @@
-;(function(){
-  var items = Array.from({length:30},function(_,i){
-    return { day:i+1, juz:i+1 }
-  })
+function toggleTheme() {
+    const isAlt = document.body.classList.toggle('alt-theme');
+    localStorage.setItem('nuurhuda_theme', isAlt ? 'black' : 'green');
+    document.getElementById('themeBtn').textContent = isAlt ? "Light Theme" : "Dark Theme";
+}
 
-  var state = {
-    view:'list',
-    week:1
-  }
-
-  var container = document.getElementById('scheduleContainer')
-  var label = document.getElementById('viewLabel')
-  var btnList = document.getElementById('viewList')
-  var btnCal = document.getElementById('viewCalendar')
-  var btnPrev = document.getElementById('prev')
-  var btnNext = document.getElementById('next')
-  var btnReset = document.getElementById('reset')
-  var yearEl = document.getElementById('year')
-  if(yearEl){ yearEl.textContent = new Date().getFullYear() }
-
-  function setActiveButtons(){
-    if(state.view==='list'){
-      btnList.classList.remove('secondary')
-      btnCal.classList.add('secondary')
-    }else{
-      btnCal.classList.remove('secondary')
-      btnList.classList.add('secondary')
+(function() {
+    // Sync Theme on Load
+    if(localStorage.getItem('nuurhuda_theme') === 'black') {
+        document.body.classList.add('alt-theme');
+        document.getElementById('themeBtn').textContent = "Light Theme";
     }
-  }
 
-  function render(){
-    setActiveButtons()
-    if(state.view==='list'){
-      var start = (state.week-1)*7
-      var slice = items.slice(start,start+7)
-      label.textContent = 'View: List • Week ' + state.week
-      var html = ['<div class="list">']
-      for(var i=0;i<slice.length;i++){
-        var it = slice[i]
-        html.push('<div class="row">')
-        html.push('<div class="day">Day '+it.day+'</div>')
-        html.push('<div class="juz">Juz '+it.juz+'</div>')
-        html.push('<div class="action"><button class="btn secondary" data-day="'+it.day+'">Mark</button></div>')
-        html.push('</div>')
-      }
-      html.push('</div>')
-      container.innerHTML = html.join('')
-      btnPrev.disabled = state.week===1
-      btnNext.disabled = state.week===5
-    }else{
-      label.textContent = 'View: Calendar'
-      var html2 = ['<div class="grid">']
-      for(var d=1;d<=35;d++){
-        if(d>30){
-          html2.push('<div class="cell blank"></div>')
-          continue
+    let progress = JSON.parse(localStorage.getItem('nuur_juz_progress')) || [];
+    let state = { view: 'list', week: 1 };
+    const items = Array.from({length: 30}, (_, i) => ({ day: i + 1, juz: i + 1 }));
+
+    const container = document.getElementById('scheduleContainer');
+    const label = document.getElementById('viewLabel');
+
+    function render() {
+        container.innerHTML = '';
+        const pct = Math.round((progress.length / 30) * 100);
+        document.getElementById('progressBar').style.width = pct + '%';
+        document.getElementById('percent').textContent = pct + '%';
+
+        if (state.view === 'list') {
+            label.textContent = `Weekly Overview - Week ${state.week}`;
+            const slice = items.slice((state.week - 1) * 7, state.week * 7);
+            slice.forEach(it => {
+                const isDone = progress.includes(it.day);
+                const div = document.createElement('div');
+                div.className = `list-row ${isDone ? 'completed' : ''}`;
+                div.innerHTML = `
+                    <div style="text-align:left">
+                        <small style="color:var(--gold); font-weight:700">DAY ${it.day}</small>
+                        <div style="font-size:18px">Juz ${it.juz}</div>
+                    </div>
+                    <button class="btn" onclick="mark(${it.day})">${isDone ? '✓ Done' : 'Mark Complete'}</button>
+                `;
+                container.appendChild(div);
+            });
+            document.getElementById('prev').style.display = 'inline-block';
+            document.getElementById('next').style.display = 'inline-block';
+        } else {
+            label.textContent = `Full 30-Day Schedule`;
+            const grid = document.createElement('div');
+            grid.className = 'box-grid';
+            items.forEach(it => {
+                const isDone = progress.includes(it.day);
+                const box = document.createElement('div');
+                box.className = `box ${isDone ? 'completed' : ''}`;
+                box.onclick = () => mark(it.day);
+                box.innerHTML = `<b>${it.day}</b><small>Juz ${it.juz}</small>`;
+                grid.appendChild(box);
+            });
+            container.appendChild(grid);
+            document.getElementById('prev').style.display = 'none';
+            document.getElementById('next').style.display = 'none';
         }
-        html2.push('<div class="cell">')
-        html2.push('<h4>Day '+d+'</h4>')
-        html2.push('<p>Juz '+d+'</p>')
-        html2.push('<span class="badge">Read</span>')
-        html2.push('</div>')
-      }
-      html2.push('</div>')
-      container.innerHTML = html2.join('')
-      btnPrev.disabled = true
-      btnNext.disabled = true
     }
-  }
 
-  btnList.addEventListener('click',function(){
-    state.view='list'
-    render()
-  })
-  btnCal.addEventListener('click',function(){
-    state.view='calendar'
-    render()
-  })
-  btnPrev.addEventListener('click',function(){
-    if(state.week>1){ state.week--; render() }
-  })
-  btnNext.addEventListener('click',function(){
-    if(state.week<5){ state.week++; render() }
-  })
-  btnReset.addEventListener('click',function(){
-    state.view='list'; state.week=1; render()
-  })
+    window.mark = (day) => {
+        const idx = progress.indexOf(day);
+        idx > -1 ? progress.splice(idx, 1) : progress.push(day);
+        localStorage.setItem('nuur_juz_progress', JSON.stringify(progress));
+        render();
+    };
 
-  render()
-})()
+    document.getElementById('viewList').onclick = () => { state.view = 'list'; render(); };
+    document.getElementById('viewCalendar').onclick = () => { state.view = 'calendar'; render(); };
+    document.getElementById('prev').onclick = () => { if(state.week > 1) { state.week--; render(); }};
+    document.getElementById('next').onclick = () => { if(state.week < 5) { state.week++; render(); }};
+    document.getElementById('reset').onclick = () => { if(confirm("Reset all 30 days?")) { progress = []; localStorage.removeItem('nuur_juz_progress'); render(); }};
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    render();
+})();
