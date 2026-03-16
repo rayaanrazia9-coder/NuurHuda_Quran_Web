@@ -1,87 +1,88 @@
-<!DOCTYPE html>
-<html lang="en">
-
+<!doctype html>
+<html lang="en" dir="ltr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<link rel="stylesheet" href="about.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NuurHuda • About</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body class="dark">
+  <header>
+    <div class="container nav">
+      <a class="brand" href="index.html" aria-label="NuurHuda Home">
+        <span class="brand-logo">☪</span>
+        <span class="brand-name">NuurHuda</span>
+      </a>
+      <nav aria-label="Site">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="surah.html">Surah</a></li>
+          <li><a href="juz.html">Juz</a></li>
+          <li><a href="audio.html">Audio</a></li>
+          <li><a href="reminder.html">Reminder</a></li>
+          <li><a href="schedule.html">Schedule</a></li>
+        </ul>
+      </nav>
+      <button id="themeToggle" class="toggle" aria-pressed="true">
+        <span>Theme</span>
+        <span class="mode">Dark</span>
+      </button>
+    </div>
+  </header>
 
- <header>
-  <div class="containe nav">
+<main>
+    <div class="container">
+      <section class="section">
+        <div class="card">
+          <h2>About NuurHuda</h2>
+          <p class="subtitle">A simple, clean way to read and listen to the Qur’an.</p>
+          <p>
+            This website helps Muslims around the world read and listen to the Holy Qur’an
+            anytime and anywhere. The goal is to make the Qur’an accessible through a
+            focused, calm, and modern digital experience.
+          </p>
+          <p>
+            The site includes all 114 Surahs and full 30 Juz navigation. You can browse
+            Surahs and Ayahs, and listen to beautiful recitations.
+          </p>
+          <p>
+            It also offers gentle reminders to read and reflect daily. The layout adapts
+            to phones and desktops for a smooth experience.
+          </p>
+        </div>
 
-    <a class="brand" href="index.html">
-      <span class="brand-logo">☪</span>
-      <span class="brand-name">NuurHuda</span>
-    </a>
+        <div class="card">
+          <h3>Features</h3>
+          <ul>
+            <li>114 Surahs with clear navigation</li>
+            <li>30 Juz browsing</li>
+            <li>Audio recitation support</li>
+            <li>Daily reminder motivation</li>
+            <li>Simple, readable design</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+  </main>
 
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="surah.html">Surah</a></li>
-        <li><a href="juz.html" active>Juz</a></li>
-        <li><a href="audio.html">Audio</a></li>
-        <li><a href="reminder.html">Reminder</a></li>
-        <li><a href="schedule.html">Schedule</a></li>
-      </ul>
-    </nav>
-
-    <button id="themeBtn" class="theme-toggle" onclick="toggleTheme()">Dark Theme</button>
-
-  </div>
-</header>
-
-
-<div class="container">
-
-<section class="about">
-
-<h2>About This Website</h2>
-
-<p>
-This website is created to help Muslims around the world easily read and listen
-to the Holy Quran anytime and anywhere. The goal of this platform is to make
-the Quran accessible through a simple and clean digital experience.
-</p>
-
-<p>
-The website includes the complete Quran with all 114 Surahs and the full
-30 Juz structure. Users can easily navigate between Surahs and Ayahs
-and listen to beautiful Quran recitations.
-</p>
-
-<p>
-It also provides reminders that encourage Muslims to read and reflect
-on the Quran daily. The website is designed to work smoothly on both
-mobile phones and computers.
-</p>
-
-<h3>Website Features</h3>
-
-<ul>
-<li>114 Complete Surahs</li>
-<li>30 Juz Navigation</li>
-<li>Audio Quran Recitation</li>
-<li>Ayah Reminder</li>
-<li>Search Surah or Ayah</li>
-<li>Simple and clean design</li>
-</ul>
-
-<button onclick="showMessage()">Click for Message</button>
-
-</section>
-
-</div>
-
-<footer>
-<p>© 2026 Quran Reminder Website</p>
-</footer>
-
-<script src="js/script.js"></script>
-
+ <footer>
+    <div class="container footer-grid">
+      <div>Built with care. May it benefit.</div>
+      <div class="footer-nav">
+        <a href="about.html">About</a>
+        <a href="surah.html">Surah</a>
+        <a href="juz.html">Juz</a>
+        <a href="audio.html">Audio</a>
+        <a href="reminder.html">Reminder</a>
+        <a href="schedule.html">Schedule</a>
+      </div>
+    </div>
+  </footer>
+  <script src="script.js"></script>
 </body>
 </html>
+
