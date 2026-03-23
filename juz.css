@@ -1,8 +1,13 @@
-/* FONTS */
+/* =====================================
+    ====== FONTS ======
+   ===================================== */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Scheherazade+New:wght@400;700&display=swap");
 
+/* =====================================
+    ====== ROOT COLORS ======
+   ===================================== */
 :root {
-  --bg-top:#0f5132;
+  --bg-top: #0f5132;
   --bg-bottom: #022c22;
   --gold: #d4af37;
   --white: #ffffff;
@@ -10,39 +15,100 @@
   --border: rgba(212, 175, 55, 0.2);
 }
 
-/* TEAM DARK: BLACK & GOLD */
+/* Dark alternative theme */
 body.alt-theme {
   --bg-top: #1a1a1a;
   --bg-bottom: #000000;
   --gold: #ffcc33;
-  --glass: rgba(255, 255, 255, 0.02);
+  --glass: rgba(255, 255, 255, 0.03);
   --border: rgba(255, 204, 51, 0.3);
 }
 
+/* =====================================
+    ====== BODY ======
+   ===================================== */
 body {
   margin: 0;
   font-family: "Poppins", sans-serif;
   background: radial-gradient(circle at top, var(--bg-top), var(--bg-bottom));
   background-attachment: fixed;
   color: var(--white);
-  transition: all 0.4s ease;
   min-height: 100vh;
+  transition: 0.4s;
 }
 
+/* =====================================
+    ====== HEADER ======
+   ===================================== */
 header {
-  background: rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(12px);
-  padding: 15px 5%;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  backdrop-filter: blur(10px);
+  background: linear-gradient(180deg, rgba(20,20,20,0.9), rgba(20,20,20,0.6));
   border-bottom: 1px solid var(--border);
+  padding: 10px 0;
 }
 
-.nav-container {
+.container {
+  width: min(1100px, 94%);
+  margin-inline: auto;
+}
+
+/* =====================================
+    ====== NAVIGATION ======
+   ===================================== */
+.container.nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  max-width: 1100px;
+  margin: auto;
+  padding: 0 20px;
 }
 
-/* OVAL TOGGLE FOR TEXT */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: var(--gold);
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.brand-logo {
+  font-size: 22px;
+}
+
+.brand-name {
+  font-weight: 700;
+  letter-spacing: 0.4px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 14px;
+}
+
+nav a {
+  color: var(--white);
+  text-decoration: none;
+  padding: 10px 14px;
+  font-size: 15px;
+  border-radius: 6px;
+  transition: all 0.2s ease;}
+
+nav a:hover,
+nav a.active {
+  background: linear-gradient(180deg, #d4af37, #b88f1d);
+  color: #000;
+}
+
+/* =====================================
+    ====== THEME BUTTON ======
+   ===================================== */
 .theme-toggle {
   padding: 8px 15px;
   border-radius: 25px;
@@ -63,21 +129,26 @@ header {
   box-shadow: 0 0 15px var(--gold);
 }
 
-/* JUZ BOXES WITH GLOW */
+/* =====================================
+    ====== JUZ GRID ======
+   ===================================== */
 .container {
-  display: flex; flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  padding: 40px 20px; gap: 20px;
+  padding: 40px 20px;
+  gap: 20px;
 }
 
 .box {
+  position: relative;
+  cursor: pointer;
   background: var(--glass);
   width: 140px;
   padding: 45px 10px;
   border-radius: 12px;
   border: 1px solid var(--border);
   text-align: center;
-  text-decoration: none;
   color: white;
   transition: 0.3s;
 }
@@ -89,101 +160,260 @@ header {
   box-shadow: 0 10px 20px rgba(0,0,0,0.5), 0 0 10px var(--border);
 }
 
-.box b { display: block; font-size: 24px; color: var(--gold); }
+.box b {
+  display: block;
+  font-size: 24px;
+  color: var(--gold);
+}
 
-/* READER CARDS */
+.box::after {
+  display: block;
+  margin-top: 8px;
+  font-size: 18px;
+  opacity: 0.7;
+}
+
+/* Completed Juz */
+.box.completed {
+  background: linear-gradient(145deg, #065f46, #022c22);
+  border-color: #10b981;
+  box-shadow: 0 0 15px #10b981;
+}
+
+.box.completed b {
+  color: #34d399;
+}
+
+/* =====================================
+    ====== MARK BUTTON ======
+   ===================================== */
+.mark-btn {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  background: var(--gold);
+  color: #000;
+  border: none;
+  border-radius: 6px;
+  padding: 3px 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+.mark-btn:hover {
+  background: #fff;
+  color: var(--gold);
+}
+
+/* =====================================
+    ====== AYAH CARD ======
+   ===================================== */
 .ayah-card {
   background: var(--glass);
   border: 1px solid var(--border);
-  border-radius: 15px;
-  padding: 40px; margin: 20px auto;
-  max-width: 850px; text-align: center;
+  border-radius: 12px;
+  padding: 20px;
+  margin: 12px auto;
+  max-width: 650px;
+  text-align: center;
+  backdrop-filter: blur(5px);
 }
 
+/* Arabic text */
 .arabic {
   font-family: "Scheherazade New", serif;
-  font-size: 42px; color: var(--gold);
-  direction: rtl; line-height: 2.2;
+  font-size: 28px;
+  color: var(--gold);
+  direction: rtl;
+  line-height: 1.9;
+  margin: 10px 0;
 }
 
+/* Translation text */
+.translation {
+  font-size: 13px;
+  color: #ddd;
+  margin-top: 5px;
+}
+
+/* =====================================
+    ====== BUTTONS ======
+   ===================================== */
 .btn {
   background: transparent;
   border: 1px solid var(--gold);
   color: var(--gold);
-  padding: 8px 18px; border-radius: 6px;
-  cursor: pointer; margin: 5px;
-  text-decoration: none; font-size: 11px; font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 5px;
+  font-size: 11px;
+  transition: 0.2s;
 }
 
-#progress-container { position: fixed; top: 0; left: 0; width: 100%; height: 4px; z-index: 2000; }
-#progress-bar { height: 100%; width: 0%; background: var(--gold); box-shadow: 0 0 8px var(--gold); }
-
-#scrollToTop {
-  position: fixed; bottom: 30px; right: 30px;
-  width: 50px; height: 50px; border-radius: 50%;
-  background: var(--gold); color: black;
-  border: none; cursor: pointer; display: none; font-weight: bold;
+.btn:hover {
+  background: var(--gold);
+  color: black;
 }
 
-
-
-/* TILAAWAT HEADER */
-
-.container.nav{
-display:flex;
-justify-content:space-between;
-align-items:center;
-max-width:1200px;
-margin:auto;
+/* Back button */
+.back {
+  margin: 15px;
 }
 
-.nav {
+/* =====================================
+    ====== PROGRESS BAR ======
+   ===================================== */
+#progress-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  z-index: 2000;
+}
+
+#progress-bar {
+  height: 100%;
+  width: 0%;
+  background: var(--gold);
+}
+
+/* Progress header */
+.progress-header {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  padding: 16px 0;
+  align-items: center;
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 10px 20px;
 }
 
-.brand{
-display:flex;
-align-items:center;
-gap:8px;
-text-decoration:none;
-color:var(--gold);
-font-weight:700;
-font-size:20px;
+/* Reset button */
+.reset-btn {
+  background: transparent;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
 }
 
-.brand-logo{
-font-size:22px;
+.reset-btn:hover {
+  background: var(--gold);
+  color: black;
 }
 
-nav ul {
-  list-style: none;
-  display: flex;
-  gap: 14px;
+/* =====================================
+    ====== SCROLL BUTTON ======
+   ===================================== */
+#scrollToTop {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: var(--gold);
+  color: black;
+  border: none;
+  cursor: pointer;
+  display: none;
+  font-weight: bold;
 }
 
-nav a {
-  color: var(--white);
-  text-decoration: none;
-  padding: 10px 14px;
+/* =====================================
+    ====== CELEBRATION MODAL ======
+   ===================================== */
+.celebration {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.8);
+  background: linear-gradient(145deg,#065f46,#022c22);
+  color: white;
+  padding: 20px 40px;
+  border-radius: 12px;
+  font-size: 18px;
+  font-weight: 600;
+  opacity: 0;
+  pointer-events: none;
+  box-shadow: 0 0 20px gold;
+  transition: 0.4s;
+  z-index: 9999;
+}
+
+.celebration.show {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* Simple confetti animation */
+.confetti {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  background: gold;
+  top: 0;
+  animation: fall 2s linear forwards;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(100vh) rotate(360deg);
+  }
+}
+
+/* Continue Reading button */
+.continue-btn {
+  display: block;
+  margin: 10px auto;
+  padding: 10px 20px;
+  background: var(--gold);
+  color: black;
+  border: none;
   border-radius: 8px;
-  transition: all 0.2s ease;
+  cursor: pointer;
+  font-weight: 600;
 }
 
-nav a:hover, nav a.active {
-  color: #0e0f10;
-  background: linear-gradient(180deg, #d4af37, #b88f1d);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+/* =====================================
+    ====== LAST READ & COMPLETED STATES ======
+   ===================================== */
+.last-read {
+  border: 1px solid rgba(130,251,174,0.6);
+  background: rgba(130,251,174,0.08);
+  box-shadow: 0 0 4px rgba(46,225,111,0.25);
 }
 
-nav a:hover{
-color: #d4af37;
+body.alt-theme .completed {
+  border: 1.5px solid #1fa67a;
+  background: rgba(31, 166, 122, 0.03);
+  box-shadow: 0 0 6px rgba(31, 166, 122, 0.3);
 }
 
-nav a:hover, nav a.active {
-  color: #0e0f10;
-  background: linear-gradient(180deg, #d4af37, #b88f1d);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+body.alt-theme .last-read {
+  border: 1px solid rgba(130, 251, 174, 0.5);
+  background: rgba(130, 251, 174, 0.05);
+  box-shadow: 0 0 3px rgba(46, 225, 111, 0.2);
+}
+
+/* =====================================
+    ====== MOBILE RESPONSIVE ======
+   ===================================== */
+@media (max-width: 600px) {
+  .box {
+    width: 90px;
+    padding: 20px 5px;
+  }
+
+  .arabic {
+    font-size: 24px;
+  }
+
+  .ayah-card {
+    padding: 15px;
+  }
 }
