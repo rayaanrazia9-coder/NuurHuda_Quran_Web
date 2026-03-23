@@ -2,7 +2,7 @@
   "name": "nuurhuda_quran_web",
   "version": "1.0.0",
   "description": "Quran website for competition",
-  "main": "main.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
