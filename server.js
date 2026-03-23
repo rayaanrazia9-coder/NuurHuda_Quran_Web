@@ -1,17 +1,21 @@
-const express = require('express');
-const path = require('path');
+const express = require("express");
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = 5000;
 
-// Middleware to parse JSON
-app.use(express.json());
+// Route test
+app.get("/", (req, res) => {
+  res.send("NuurHuda Quran Website is running 🚀");
+});
 
-// Serve static files (CSS, JS, etc.) from the current directory
-app.use(express.static(__dirname));
+// Server start
+app.listen(PORT, () => {
+  console.log(`Server is running on http://localhost:${PORT}`);
+});
+
 
 // Route for Home Page
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'Index.html'));
+    res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 // Route for Schedule Page
@@ -28,8 +32,4 @@ app.get('/api/schedule/progress', (req, res) => {
 app.post('/api/schedule/progress', (req, res) => {
     scheduleProgress = req.body.progress;
     res.json({ message: 'Progress saved successfully' });
-});
-
-app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
 });

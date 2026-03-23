@@ -1,0 +1,24 @@
+{
+  "name": "nuurhuda_quran_web",
+  "version": "1.0.0",
+  "description": "Quran website for competition",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rayaanrazia9-coder/NuurHuda_Quran_Web.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/rayaanrazia9-coder/NuurHuda_Quran_Web/issues"
+  },
+  "homepage": "https://github.com/rayaanrazia9-coder/NuurHuda_Quran_Web#readme",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
