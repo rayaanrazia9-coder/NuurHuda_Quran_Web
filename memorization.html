@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NuurHuda • Memorization Tracker</title>
+  <link rel="stylesheet" href="memorization.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <a class="brand" href="index.html">
+      <span class="brand-logo">☪</span>
+      <span class="brand-name">NuurHuda</span>
+    </a>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="surah.html">Surah</a></li>
+        <li><a href="juz.html">Juz</a></li>
+        <li><a href="audio.html">Audio</a></li>
+        <li><a href="reminder.html">Reminder</a></li>
+        <li><a href="memorization.html" class="active">Memorization</a></li>
+      </ul>
+    </nav>
+    <button id="themeBtn" class="theme-toggle" onclick="toggleTheme()">Dark Theme</button>
+  </div>
+</header>
+
+<main class="container">
+  <section class="hero-section">
+    <h1 class="page-title">Quran Memorization Tracker</h1>
+    <p class="subtitle">"The best of you are those who learn the Quran and teach it."</p>
+  </section>
+
+  <div class="grid-layout">
+    <!-- New Task Card -->
+    <section class="card new-task-card">
+      <h2><i class="fas fa-plus-circle"></i> New Memorization Task</h2>
+      <div class="form-group">
+        <label for="surahSelect">Select Surah</label>
+        <select id="surahSelect">
+          <option value="">-- Choose a Surah --</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="ayahStart">From Ayah</label>
+          <input type="number" id="ayahStart" min="1" placeholder="1">
+        </div>
+        <div class="form-group">
+          <label for="ayahEnd">To Ayah</label>
+          <input type="number" id="ayahEnd" min="1" placeholder="End">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="dailyTarget">Daily Target (Ayahs)</label>
+        <input type="number" id="dailyTarget" min="1" value="5">
+      </div>
+      <button id="startBtn" class="btn btn-primary">Start Memorizing</button>
+    </section>
+
+    <!-- Stats & Goals -->
+    <section class="card stats-card">
+      <h2><i class="fas fa-chart-line"></i> Daily Progress</h2>
+      <div class="stats-grid">
+        <div class="stat-box">
+          <span class="stat-value" id="todayCount">0</span>
+          <span class="stat-label">Ayahs Today</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-value" id="totalMemorized">0</span>
+          <span class="stat-label">Total Ayahs</span>
+        </div>
+      </div>
+      <div class="goal-progress">
+        <div class="progress-info">
+          <span>Daily Goal Progress</span>
+          <span id="goalPercent">0%</span>
+        </div>
+        <div class="progress-track">
+          <div id="goalBar" class="progress-fill"></div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Active Tasks Section -->
+  <section class="tasks-section">
+    <h2><i class="fas fa-tasks"></i> Active Memorization</h2>
+    <div id="activeTasksContainer" class="tasks-grid">
+      <!-- Tasks will be injected here -->
+      <div class="empty-state">
+        <p>No active tasks. Start a new one above!</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Revision Section -->
+  <section class="tasks-section revision-section">
+    <h2><i class="fas fa-history"></i> Revision (Muraja’a)</h2>
+    <div id="revisionTasksContainer" class="tasks-grid">
+      <!-- Revision tasks will be injected here -->
+      <div class="empty-state">
+        <p>Complete a task to see it here for revision.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- Congratulation Modal -->
+<div id="congratsModal" class="modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="modal-icon">🎉</span>
+      <h2>Mabrook!</h2>
+    </div>
+    <p id="congratsMessage">You have completed your memorization goal!</p>
+    <div class="modal-actions">
+      <button id="closeCongrats" class="btn btn-primary">Alhamdulillah</button>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>© <span id="year"></span> NuurHuda • May it be a light for you.</p>
+</footer>
+
+<script src="memorization.js"></script>
+</body>
+</html>
