@@ -1,47 +1,52 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>NuurHuda Reminder</title>
-
-<link rel="stylesheet" href="reminder.css">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Reminder</title>
+    <link rel="stylesheet" href="reminder.css">
 </head>
-
 <body>
 
+<!-- HEADER START -->
 <header>
+  <div class="container nav">
 
-<a class="brand" href="#">
-☪ NuurHuda
-</a>
+    <a class="brand" href="index.html">
+      <span class="brand-logo">☪</span>
+      <span class="brand-name">NuurHuda</span>
+    </a>
 
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="surah.html">Surah</a></li>
+        <li><a href="juz.html">Juz</a></li>
+        <li><a href="audio.html">Audio</a></li>
+        <li><a href="reminder.html">Reminder</a></li>
+        <li><a href="schedule.html" class="active">Schedule</a></li>
+      </ul>
+    </nav>
+
+    <button id="themeBtn" class="theme-toggle" onclick="toggleTheme()">Dark Theme</button>
+
+  </div>
 </header>
+<!-- HEADER END -->
 
-
+<!-- REMINDER SECTION -->
 <div class="container">
+    <h2>Daily Reminder</h2>
 
-<h1>Daily Reminder</h1>
+    <input type="text" id="reminderInput" placeholder="Write reminder...">
+    <input type="time" id="reminderTime">
+    <button id="addBtn">Add</button>
 
-<div class="reminder-box">
-
-<input type="text" id="reminderInput" placeholder="Write reminder...">
-
-<input type="time" id="reminderTime">
-
-<button id="addBtn">Add</button>
-
+    <ul id="reminderList"></ul>
 </div>
 
-<ul id="reminderList"></ul>
-
-</div>
-
-<script src="main.js"></script>
+<script src="Reminder.js"></script>
 
 </body>
-
 </html>
