@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NuurHuda Dashboard</title>
+    <link rel="stylesheet" href="reminder.css">
+</head>
+<body>
+
+<header>
+    <div class="nav-container">
+        <div class="brand">☪ NuurHuda</div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Surah</a></li>
+                <li><a href="#" class="active">Reminder</a></li>
+                <li><a href="#">Schedule</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<audio id="notifSound" src="https://www.soundjay.com/buttons/sounds/beep-07a.mp3" preload="auto"></audio>
+
+<div class="main-wrapper">
+    <div class="box">
+        <h2>Daily Reminder</h2>
+        <div class="inputs">
+            <input type="text" id="remInput" placeholder="Maxaad xasuusan rabtaa?">
+            <input type="time" id="remTime">
+            <button class="btn btn-rem" onclick="saveReminder()">Add Reminder</button>
+        </div>
+        <ul id="reminderList" class="data-list"></ul>
+    </div>
+
+    <div class="box">
+        <h2>Quran Memorization</h2>
+        <div class="inputs">
+            <input type="text" id="memoSurah" placeholder="Magaca Surah-da">
+            <input type="number" id="memoPages" placeholder="Immisa bog?">
+            <button class="btn btn-memo" onclick="saveMemo()">Update Progress</button>
+        </div>
+        <ul id="memoList" class="data-list"></ul>
+    </div>
+</div>
+
+<script src="reminder.js"></script>
+</body>
+</html>

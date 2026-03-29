@@ -1,110 +1,39 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: sans-serif;
-}
-
 body {
-  background: #f5f7fa;
-  color: #333;
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #2e8b57;
+    color: white;
 }
 
-/* HEADER */
-header {
-  background: #0d1b2a;
-  color: white;
-  padding: 15px 0;
-  position: sticky;
-  top: 0;
+header { background-color: rgba(0, 0, 0, 0.2); padding: 15px 0; }
+.nav-container { display: flex; justify-content: space-around; align-items: center; }
+.brand { font-size: 24px; font-weight: bold; }
+nav ul { list-style: none; display: flex; gap: 20px; }
+nav a { color: white; text-decoration: none; opacity: 0.8; }
+nav a.active { border-bottom: 2px solid white; opacity: 1; }
+
+.main-wrapper { display: flex; justify-content: center; gap: 30px; padding: 40px; flex-wrap: wrap; }
+.box { 
+    background: rgba(255, 255, 255, 0.2); 
+    padding: 25px; 
+    border-radius: 15px; 
+    width: 350px; 
+    backdrop-filter: blur(5px);
 }
 
-.nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 90%;
-  margin: auto;
+.inputs input { 
+    width: 100%; padding: 12px; margin-bottom: 10px; 
+    border-radius: 8px; border: none; box-sizing: border-box;
 }
 
-.brand {
-  display: flex;
-  align-items: center;
-  color: white;
-  text-decoration: none;
-}
+.btn { width: 100%; padding: 12px; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; }
+.btn-rem { background: white; color: #2e8b57; }
+.btn-memo { background: #ffd700; color: #333; margin-top: 5px; }
 
-.brand-logo {
-  margin-right: 8px;
+.data-list { list-style: none; padding: 0; margin-top: 20px; }
+.item { 
+    background: white; color: #333; padding: 10px; 
+    margin-bottom: 10px; border-radius: 8px; 
+    display: flex; justify-content: space-between; align-items: center;
 }
-
-nav ul {
-  list-style: none;
-  display: flex;
-  gap: 20px;
-}
-
-nav ul li a {
-  color: white;
-  text-decoration: none;
-}
-
-nav ul li a.active {
-  color: #00b4d8;
-}
-
-/* BUTTON */
-button {
-  padding: 10px;
-  border: none;
-  background: #00b4d8;
-  color: white;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-/* CONTAINER */
-.container {
-  width: 90%;
-  max-width: 500px;
-  margin: 30px auto;
-  text-align: center;
-}
-
-/* INPUT */
-input {
-  padding: 10px;
-  margin: 10px;
-  width: 70%;
-}
-
-/* LIST */
-ul {
-  list-style: none;
-  margin-top: 20px;
-}
-
-li {
-  background: white;
-  margin: 10px 0;
-  padding: 10px;
-  display: flex;
-  justify-content: space-between;
-  border-radius: 5px;
-}
-
-/* DELETE */
-.delete {
-  color: red;
-  cursor: pointer;
-}
-
-/* DARK MODE */
-.dark {
-  background: #1b263b;
-  color: white;
-}
-
-.dark li {
-  background: #415a77;
-}
+.del-btn { background: #ff4d4d; color: white; border: none; padding: 5px 10px; border-radius: 5px; cursor: pointer; }
