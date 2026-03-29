@@ -9,18 +9,24 @@
 <body>
 
 <header>
-    <div class="nav-container">
-        <div class="brand">☪ NuurHuda</div>
-        <nav>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Surah</a></li>
-                <li><a href="#" class="active">Reminder</a></li>
-                <li><a href="#">Schedule</a></li>
-            </ul>
-        </nav>
-    </div>
+  <div class="container nav">
+    <a class="brand" href="index.html">
+      <span class="brand-logo">☪</span>
+      <span class="brand-name">NuurHuda</span>
+    </a>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="surah.html">Surah</a></li>
+        <li><a href="juz.html">Juz</a></li>
+        <li><a href="audio.html">Audio</a></li>
+        <li><a href="reminder.html">Reminder</a></li>
+        <li><a href="memorization.html" class="active">Memorization</a></li>
+      </ul>
+    </nav>
+    <button id="themeBtn" class="theme-toggle" onclick="toggleTheme()">Dark Theme</button>
+  </div>
 </header>
 
 <audio id="notifSound" src="https://www.soundjay.com/buttons/sounds/beep-07a.mp3" preload="auto"></audio>
