@@ -1,31 +1,87 @@
-const input = document.getElementById("reminderInput");
-const time = document.getElementById("reminderTime");
-const addBtn = document.getElementById("addBtn");
-const list = document.getElementById("reminderList");
+// 1. Soo qaado xogta kaydsan
+let reminders = JSON.parse(localStorage.getItem('myReminders')) || [];
+let memos = JSON.parse(localStorage.getItem('myMemos')) || [];
 
-addBtn.addEventListener("click", () => {
-  if (input.value === "" || time.value === "") {
-    alert("Fadlan buuxi reminder + time");
-    return;
-  }
+window.onload = () => {
+    displayReminders();
+    displayMemos();
+    setInterval(checkAlerts, 1000); // Hubi saacadda ilbidhiqsi walba
+};
 
-  let li = document.createElement("li");
+// --- REMINDER FUNCTIONS ---
+function saveReminder() {
+    const text = document.getElementById('remInput').value;
+    const time = document.getElementById('remTime').value;
+    if (!text || !time) return alert("Fadlan buuxi!");
 
-  li.innerHTML = `
-    ${input.value} - ${time.value}
-    <span class="delete">X</span>
-  `;
+    reminders.push({ text, time, notified: false });
+    localStorage.setItem('myReminders', JSON.stringify(reminders));
+    displayReminders();
+    document.getElementById('remInput').value = "";
+}
 
-  list.appendChild(li);
+function displayReminders() {
+    const list = document.getElementById('reminderList');
+    list.innerHTML = "";
+    reminders.forEach((r, index) => {
+        const li = document.createElement('li');
+        li.className = "item";
+        li.innerHTML = `<span><b>${r.time}</b> - ${r.text}</span>
+                        <button class="del-btn" onclick="deleteRem(${index})">X</button>`;
+        list.appendChild(li);
+    });
+}
 
-  input.value = "";
-  time.value = "";
+function deleteRem(index) {
+    reminders.splice(index, 1);
+    localStorage.setItem('myReminders', JSON.stringify(reminders));
+    displayReminders();
+}
 
-  li.querySelector(".delete").addEventListener("click", () => {
-    li.remove();
-  });
-});
+// --- MEMORIZATION FUNCTIONS ---
+function saveMemo() {
+    const surah = document.getElementById('memoSurah').value;
+    const pages = document.getElementById('memoPages').value;
+    if (!surah || !pages) return alert("Fadlan buuxi xifdiga!");
 
-function toggleTheme() {
-  document.body.classList.toggle("dark");
+    memos.push({ surah, pages });
+    localStorage.setItem('myMemos', JSON.stringify(memos));
+    displayMemos();
+    document.getElementById('memoSurah').value = "";
+    document.getElementById('memoPages').value = "";
+}
+
+function displayMemos() {
+    const list = document.getElementById('memoList');
+    if (!list) return;
+    list.innerHTML = "";
+    memos.forEach((m, index) => {
+        const li = document.createElement('li');
+        li.className = "item";
+        li.innerHTML = `<span>📖 ${m.surah} (${m.pages} bog)</span>
+                        <button class="del-btn" onclick="deleteMemo(${index})">X</button>`;
+        list.appendChild(li);
+    });
+}
+
+function deleteMemo(index) {
+    memos.splice(index, 1);
+    localStorage.setItem('myMemos', JSON.stringify(memos));
+    displayMemos();
+}
+
+// --- ALERT & POPUP ---
+function checkAlerts() {
+    const now = new Date();
+    const currentTime = now.getHours().toString().padStart(2, '0') + ":" + 
+                        now.getMinutes().toString().padStart(2, '0');
+
+    reminders.forEach((r, index) => {
+        if (r.time === currentTime && !r.notified) {
+            document.getElementById('notifSound').play().catch(() => {});
+            alert(`🔔 XASUUSIN: ${r.text}`);
+            reminders[index].notified = true;
+            localStorage.setItem('myReminders', JSON.stringify(reminders));
+        }
+    });
 }

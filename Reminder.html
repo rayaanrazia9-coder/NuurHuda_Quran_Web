@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daily Reminder</title>
+    <title>NuurHuda Dashboard</title>
     <link rel="stylesheet" href="reminder.css">
 </head>
 <body>
 
-<!-- HEADER START -->
 <header>
     <div class="nav-container">
         <div class="brand">☪ NuurHuda</div>
@@ -23,20 +22,31 @@
         </nav>
     </div>
 </header>
-<!-- HEADER END -->
 
-<!-- REMINDER SECTION -->
-<div class="container">
-    <h2>Daily Reminder</h2>
+<audio id="notifSound" src="https://www.soundjay.com/buttons/sounds/beep-07a.mp3" preload="auto"></audio>
 
-    <input type="text" id="reminderInput" placeholder="Write reminder...">
-    <input type="time" id="reminderTime">
-    <button id="addBtn">Add</button>
+<div class="main-wrapper">
+    <div class="box">
+        <h2>Daily Reminder</h2>
+        <div class="inputs">
+            <input type="text" id="remInput" placeholder="Maxaad xasuusan rabtaa?">
+            <input type="time" id="remTime">
+            <button class="btn btn-rem" onclick="saveReminder()">Add Reminder</button>
+        </div>
+        <ul id="reminderList" class="data-list"></ul>
+    </div>
 
-    <ul id="reminderList"></ul>
+    <div class="box">
+        <h2>Quran Memorization</h2>
+        <div class="inputs">
+            <input type="text" id="memoSurah" placeholder="Magaca Surah-da">
+            <input type="number" id="memoPages" placeholder="Immisa bog?">
+            <button class="btn btn-memo" onclick="saveMemo()">Update Progress</button>
+        </div>
+        <ul id="memoList" class="data-list"></ul>
+    </div>
 </div>
 
-<script src="Reminder.js"></script>
-
+<script src="reminder.js"></script>
 </body>
 </html>
