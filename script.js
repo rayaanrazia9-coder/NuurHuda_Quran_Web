@@ -76,11 +76,41 @@ function initNotifications() {
   });
 }
 
+function initNavigation() {
+  const hamburger = qs("#hamburgerMenu");
+  const dropdown = qs("#dropdownMenu");
+
+  if (hamburger && dropdown) {
+    hamburger.addEventListener("click", (e) => {
+      e.stopPropagation();
+      hamburger.classList.toggle("active");
+      dropdown.classList.toggle("active");
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener("click", (e) => {
+      if (!dropdown.contains(e.target) && !hamburger.contains(e.target)) {
+        hamburger.classList.remove("active");
+        dropdown.classList.remove("active");
+      }
+    });
+
+    // Close menu when clicking a link
+    dropdown.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        hamburger.classList.remove("active");
+        dropdown.classList.remove("active");
+      });
+    });
+  }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   setActiveNav();
   initTheme();
   smoothAnchorScroll();
   keyboardShortcuts();
   initNotifications();
+  initNavigation();
 });
 
